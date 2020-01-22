@@ -1,0 +1,27 @@
+{
+  "name": "yato-learn-webpack",
+  "version": "1.0.0",
+  "description": "webpack-guide practice",
+  "private": true,
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/QiqiM/webpack-Learn.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/QiqiM/webpack-Learn/issues"
+  },
+  "homepage": "https://github.com/QiqiM/webpack-Learn#readme",
+  "devDependencies": {
+    "webpack": "^4.41.5",
+    "webpack-cli": "^3.3.10"
+  },
+  "dependencies": {
+    "lodash": "^4.17.15"
+  }
+}
