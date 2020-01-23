@@ -1,19 +1,19 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const {CleanWebpackPlugin} = require('clean-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const webpack = require('webpack');
 
 module.exports = {
     entry: {
-        app: './src/index.js'
-        // print:'./src/print.js'
+        index: './src/index.js',
+        another: './src/another-module.js'
     },
-    devtool:'inline-source-map',
-    devServer:{
+    devtool: 'inline-source-map',
+    devServer: {
         contentBase: './dist',
-        hot:true
+        hot: true
     },
-    plugins:[
+    plugins: [
         // 新版本，此处不用传递数组，默认清空output的path文件夹
         new CleanWebpackPlugin(),
         new HtmlWebpackPlugin({
@@ -22,6 +22,22 @@ module.exports = {
         new webpack.NamedModulesPlugin(),
         new webpack.HotModuleReplacementPlugin()
     ],
+
+    // 4.0新写法，官网的方法已被废除
+    optimization: {
+        runtimeChunk: {
+            name: "manifest"
+        },
+        splitChunks: {
+            cacheGroups: {
+                commons: {
+                    test: /[\\/]node_modules[\\/]/,
+                    name: "common vendor",
+                    chunks: "all"
+                }
+            }
+        }
+    },
     output: {
         filename: '[name].[hash:8].bundle.js',
         path: path.resolve(__dirname, 'dist')
