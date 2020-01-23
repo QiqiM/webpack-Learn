@@ -7,6 +7,10 @@ module.exports = {
         app: './src/index.js',
         print:'./src/print.js'
     },
+    devtool:'inline-source-map',
+    devServer:{
+        contentBase: './dist'
+    },
     plugins:[
         // 新版本，此处不用传递数组，默认清空output的path文件夹
         new CleanWebpackPlugin(),
